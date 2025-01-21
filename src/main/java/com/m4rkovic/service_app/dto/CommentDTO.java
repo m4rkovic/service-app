@@ -12,15 +12,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
+public class CommentDTO {
     private Long id;
 
-    @NotBlank(message = "Name is required")
-    @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters")
-    private String name;
+    @NotNull(message = "Incident ID is required")
+    private Long incidentId;
 
-    @Size(max = 500, message = "Description cannot exceed 500 characters")
-    private String description;
+    @NotBlank(message = "Content is required")
+    @Size(min = 1, max = 2000, message = "Content must be between 1 and 2000 characters")
+    private String content;
 
-    private boolean active = true;
+    private boolean isInternal;
+    private Long parentCommentId;
 }

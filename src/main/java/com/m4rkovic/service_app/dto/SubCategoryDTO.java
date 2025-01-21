@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
+public class SubCategoryDTO {
     private Long id;
 
     @NotBlank(message = "Name is required")
@@ -21,6 +21,9 @@ public class CategoryDTO {
 
     @Size(max = 500, message = "Description cannot exceed 500 characters")
     private String description;
+
+    @NotNull(message = "Category ID is required")
+    private Long parentCategoryId;
 
     private boolean active = true;
 }

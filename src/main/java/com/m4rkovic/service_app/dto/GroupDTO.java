@@ -8,11 +8,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
+public class GroupDTO {
     private Long id;
 
     @NotBlank(message = "Name is required")
@@ -22,5 +24,11 @@ public class CategoryDTO {
     @Size(max = 500, message = "Description cannot exceed 500 characters")
     private String description;
 
+    @NotNull(message = "Company ID is required")
+    private Long companyId;
+
+    private Long parentGroupId;
+    private Long ownerId;
+    private Set<Long> memberIds;
     private boolean active = true;
 }
